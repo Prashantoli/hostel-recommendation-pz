@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Hostel Finder</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><a href="index.html">🏠 Hostel Finder - Admin</a></h1>
+                <nav class="nav">
+                    <a href="home.html" class="btn btn-small">Back to Home</a>
+                    <button id="adminLogoutBtn" class="btn btn-small">Logout</button>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="admin-section">
+                <h2>Manage Hostels</h2>
+                
+                <div class="admin-actions">
+                    <button id="addHostelBtn" class="btn btn-primary">Add New Hostel</button>
+                </div>
+                
+                <!-- Add/Edit Hostel Form -->
+                <div id="hostelForm" class="hostel-form" style="display: none;">
+                    <h3 id="formTitle">Add New Hostel</h3>
+                    <form id="addEditForm">
+                        <input type="hidden" id="hostelId">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hostelName">Hostel Name</label>
+                                <input type="text" id="hostelName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hostelLocation">Location</label>
+                                <input type="text" id="hostelLocation" name="location" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hostelPrice">Price per Night ($)</label>
+                                <input type="number" id="hostelPrice" name="price" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hostelRating">Rating (1-5)</label>
+                                <input type="number" id="hostelRating" name="rating" min="1" max="5" step="0.1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hostelType">Type</label>
+                                <select id="hostelType" name="type" required>
+                                    <option value="">Select Type</option>
+                                    <option value="Budget">Budget</option>
+                                    <option value="Luxury">Luxury</option>
+                                    <option value="Boutique">Boutique</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hostelImage">Image URL</label>
+                                <input type="url" id="hostelImage" name="image">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hostelDescription">Description</label>
+                            <textarea id="hostelDescription" name="description" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Hostel</button>
+                            <button type="button" id="cancelForm" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Hostels Management Table -->
+                <div class="admin-table">
+                    <h3>Existing Hostels</h3>
+                    <div id="adminHostelsList" class="hostels-table">
+                        <!-- Admin hostels table will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/api.js"></script>
+    <script src="scripts/admin.js"></script>
+</body>
+</html>

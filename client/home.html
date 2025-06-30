@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Hostels - Hostel Finder</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><a href="index.html">🏠 Hostel Finder</a></h1>
+                <nav class="nav">
+                    <div id="userInfo" class="user-info" style="display: none;">
+                        <span id="userName"></span>
+                        <button id="logoutBtn" class="btn btn-small">Logout</button>
+                    </div>
+                    <div id="guestInfo" class="guest-info">
+                        <a href="login.html" class="btn btn-small">Login</a>
+                        <a href="admin.html" class="btn btn-small">Admin</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search hostels by name...">
+                    <button id="searchBtn" class="btn btn-primary">Search</button>
+                </div>
+                
+                <div class="filters">
+                    <select id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="New York">New York</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Miami">Miami</option>
+                        <option value="San Francisco">San Francisco</option>
+                    </select>
+                    
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="51-100">$51 - $100</option>
+                        <option value="101-200">$101 - $200</option>
+                        <option value="201+">$201+</option>
+                    </select>
+                    
+                    <select id="ratingFilter">
+                        <option value="">All Ratings</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                        <option value="2">2+ Stars</option>
+                    </select>
+                    
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="Budget">Budget</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Boutique">Boutique</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <div class="results-header">
+                    <h2>Available Hostels</h2>
+                    <div class="sort-options">
+                        <label>Sort by:</label>
+                        <select id="sortBy">
+                            <option value="name">Name</option>
+                            <option value="price">Price</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="loadingSpinner" class="loading" style="display: none;">
+                    <p>Loading hostels...</p>
+                </div>
+                
+                <div id="hostelsList" class="hostels-grid">
+                    <!-- Hostels will be populated here -->
+                </div>
+                
+                <div id="noResults" class="no-results" style="display: none;">
+                    <p>No hostels found matching your criteria.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/api.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
